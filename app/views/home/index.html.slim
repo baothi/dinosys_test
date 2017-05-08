@@ -1,0 +1,17 @@
+h1 List Option
+
+ul
+  li
+    = link_to "create an employee", employees_path, class: "btn btn-primary"
+  li
+    = link_to "create catetegory", categories_path, class: "btn btn-primary"
+  li
+    = link_to "Add an expense", expenses_path, class: "btn btn-primary"
+  li
+    = link_to "Export Report Format JSON", home_show_path(:format=>:json), class: "btn btn-warning"
+  li
+    = link_to "Review Report", home_show_path, class: "btn btn-warning"
+  li
+    = link_to "Export Report Total Format JSON", home_total_path(:format=>:json), class: "btn btn-warning"
+  li
+    = link_to "Review Report Total", home_total_path, class: "btn btn-warning"

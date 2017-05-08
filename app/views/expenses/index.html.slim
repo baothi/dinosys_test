@@ -1,0 +1,44 @@
+p#notice
+  = notice
+h1
+  | Listing Expenses
+table.table
+  thead
+    tr
+      th
+        | Description
+      th
+        | Category
+      th
+        | Employee
+      th
+        | tax_name
+      th
+        | tax_amount
+      th
+        | pre_tax_amount
+      th[colspan="3"]
+  tbody
+    - @expenses.each do |expense|
+      tr
+        td
+          = expense.description
+        td
+          = expense.category.name
+        td
+          = expense.employee.name
+        td
+          = expense.tax_name
+        td
+          = expense.tax_amount
+        td
+          = expense.pre_tax_amount
+        td
+          = link_to 'Show', expense
+        td
+          = link_to 'Edit', edit_expense_path(expense)
+        td
+          = link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Expense', new_expense_path, class: "btn btn-info"
+= link_to 'Back to home', root_path, class: "btn btn-info"

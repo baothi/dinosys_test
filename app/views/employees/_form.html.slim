@@ -1,0 +1,20 @@
+= form_for(@employee) do |f|
+  - if @employee.errors.any?
+    #error_explanation.alert.alert-danger
+      h2
+        = pluralize(@employee.errors.count, "error")
+        |  prohibited this employee from being saved:
+      ul
+        - @employee.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label :name
+    br
+    = f.text_field :name
+  .field
+    = f.label :address
+    br
+    = f.text_field :address
+  .actions
+    = f.submit

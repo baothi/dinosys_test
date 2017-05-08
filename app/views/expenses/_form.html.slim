@@ -1,0 +1,36 @@
+= form_for(@expense) do |f|
+  - if @expense.errors.any?
+    #error_explanation.alert.alert-danger
+      h2
+        = pluralize(@expense.errors.count, "error")
+        |  prohibited this expense from being saved:
+      ul
+        - @expense.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = f.label :description, class: 'control-label'
+    br
+    = f.text_field :description, class: "form-control"
+  .form-group
+    = f.label :category_id, class: 'control-label'
+    br
+    = f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: false, class: "dropdown-menu"
+  .form-group
+    = f.label :employee_id, class: 'control-label'
+    br
+    = f.select :employee_id, Employee.all.collect { |p| [ p.name, p.id ] }, include_blank: false, class: "dropdown-menu"
+  .form-group
+    = f.label :tax_name, class: 'control-label'
+    br
+    = f.text_field :tax_name, class: "form-control"
+  .form-group
+    = f.label :tax_amount, class: 'control-label'
+    br
+    = f.text_field :tax_amount, class: "form-control"
+  .form-group
+    = f.label :pre_tax_amount, class: 'control-label'
+    br
+    = f.text_field :pre_tax_amount, class: "form-control"
+  .actions
+    = f.submit nil,class: 'btn btn-primary'

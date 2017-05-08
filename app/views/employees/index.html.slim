@@ -1,0 +1,28 @@
+p#notice
+  = notice
+h1
+  | Listing Employees
+table.table
+  thead
+    tr
+      th
+        | Employee name
+      th
+        | Employee address
+      th[colspan="3"]
+  tbody
+    - @employees.each do |employee|
+      tr
+        td
+          = employee.name
+        td
+          = employee.address
+        td
+          = link_to 'Show', employee
+        td
+          = link_to 'Edit', edit_employee_path(employee)
+        td
+          = link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Employee', new_employee_path, class: "btn btn-info"
+= link_to 'Back to home', root_path, class: "btn btn-info"

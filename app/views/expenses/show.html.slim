@@ -1,0 +1,29 @@
+p#notice
+  = notice
+p
+  strong
+    | Description:
+  = @expense.description
+p
+  strong
+    | Category:
+  = @expense.category.name
+p
+  strong
+    | Employee:
+  = @expense.employee.name
+p
+  strong
+    | tax_name:
+  = @expense.tax_name
+p
+  strong
+    | tax_amount:
+  = @expense.tax_amount
+p
+  strong
+    | pre_tax_amount:
+  = @expense.pre_tax_amount
+= link_to 'Edit', edit_expense_path(@expense)
+|  | 
+= link_to 'Back', expenses_path

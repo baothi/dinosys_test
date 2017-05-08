@@ -1,0 +1,43 @@
+.col-sm-6
+  h1 Show list of expense
+.clearfix
+= link_to "Back to Home", root_path, class: "btn btn-info"
+
+table.table
+  thead
+    tr
+      th
+        | Date
+      th
+        category
+      th
+        employee name
+      th
+        employee address
+      th
+        expense description
+      th
+        pre-tax amount
+      th
+        tax name
+      th
+        tax amount
+  tbody
+    - @data.each do |row|
+      tr
+        td
+          = row[:date]
+        td
+          = row[:category_name]
+        td
+          = row[:employee_name]
+        td
+          = row[:employee_address]
+        td
+          = row[:expense_description]
+        td
+          = row[:tax_name]
+        td
+          = row[:tax_amount]
+        td
+          = row[:pre_tax_amount]
